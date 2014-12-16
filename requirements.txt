@@ -1,0 +1,2 @@
+lettuce==0.2.20
+blockade==0.1.2

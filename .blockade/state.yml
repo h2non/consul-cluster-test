@@ -1,0 +1,4 @@
+blockade_id: blockade-40b2a5f751
+containers:
+  hydra1: {veth_device: vetheOObJuoc}
+version: 1

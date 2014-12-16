@@ -1,0 +1,16 @@
+containers:
+  hydra1:
+    image: innotech/hydra-acceptance-base:0.2
+    volumes: { "/vagrant": "/vagrant" }
+    command: /vagrant/bin/hydra -config /vagrant/config/hydra_master.conf
+    ports: [ 7401, 7771, 7772, 7777, 7701 ]
+    environment: { "IS_MASTER": 1 }
+
+#  hydra2:
+#    image: ubuntu
+#    command: sh -c "ping $C1_PORT_10000_TCP_ADDR"
+#    links: ["hydra1"]
+
+network:
+  flaky: 30%
+  slow: 75ms 100ms distribution normal
