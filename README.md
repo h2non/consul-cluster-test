@@ -70,6 +70,51 @@ Run acceptance tests (still a work in progress)
 $ make test
 ```
 
+### Blockade testing
+
+See the [complete guide](http://blockade.readthedocs.org/en/latest/guide.html) for more information
+
+##### Infer high latency in network packets
+
+```bash
+sudo blockade slow c2
+```
+
+##### Infer a flaky latency in network packets
+
+```bash
+sudo blockade flaky c3
+```
+
+##### Partition the network between containers
+
+```bash
+sudo blockade partition c1,c3 c2
+```
+
+##### Join them again
+
+```bash
+sudo blockade join
+```
+
+##### Verify the status
+```bash
+sudo blockade status
+```
+
+##### Destroy and clean up
+
+```bash
+sudo blockade destroy
+```
+
+##### See the logs of a container
+
+```bash
+sudo blockade logs c3 | tail
+```
+
 ## Docker usage
 
 ### Build a new image
