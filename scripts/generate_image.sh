@@ -1,4 +1,8 @@
 #!/bin/bash
+#
+# Creates a Docker image with tag version
+# Optionally push it to the public hub registry
+#
 
 version=$1
 
