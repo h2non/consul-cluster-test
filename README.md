@@ -1,6 +1,6 @@
-# Consul clustering tests suite
+# Consul Cluster Test Suite
 
-This repository is a proof-of-concept which aims to recreate a distributed cluster system of [Consul](http://www.consul.io/) servers in order to test multiple failure points, service isolation and network errors reproducing various complex scenarios to test the system reilabiity and non-blocking cluster fault tolerance.
+A proof-of-concept which aims to recreate a distributed cluster system of [Consul](http://www.consul.io/) servers in order to test multiple failure points, service isolation and network errors reproducing various complex scenarios to test the system reilabiity and non-blocking cluster fault tolerance.
 
 It use a [Docker](https://docker.io) [container](https://registry.hub.docker.com/u/innotech/consul/) and [Blockade](http://blockade.readthedocs.org/en/latest/), which is a Python utility to easily infer multiple network latencies and failures between Docker containers using [tc](http://en.wikipedia.org/wiki/Tc_%28Linux%29) and [iptables](http://en.wikipedia.org/wiki/Iptables) on the Docker host
 
