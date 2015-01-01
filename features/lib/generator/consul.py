@@ -1,5 +1,5 @@
 
-class Hydra:
+class Consul:
 
     PARAMS = {
         'addr': '0.0.0.0:7401',

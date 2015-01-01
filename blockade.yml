@@ -1,15 +1,24 @@
 containers:
-  hydra1:
-    image: innotech/hydra-acceptance-base:0.2
+  c1:
+    image: innotech/consul:0.4.1
     volumes: { "/vagrant": "/vagrant" }
-    command: /vagrant/bin/hydra -config /vagrant/config/hydra_master.conf
-    ports: [ 7401, 7771, 7772, 7777, 7701 ]
+    command: consul agent -server -bootstrap-expect 1 -data-dir /tmp/consul -node=agent-one -bind=$C1_PORT_10000_TCP_ADDR
+    ports: [ 8500 ]
     environment: { "IS_MASTER": 1 }
 
-#  hydra2:
-#    image: ubuntu
-#    command: sh -c "ping $C1_PORT_10000_TCP_ADDR"
-#    links: ["hydra1"]
+  c2:
+    image: innotech/consul:0.4.1
+    volumes: { "/vagrant": "/vagrant" }
+    command: consul agent -server -bootstrap-expect 1 -data-dir /tmp/consul -node=agent-one -bind=$C2_PORT_10000_TCP_ADDR
+    ports: [ 8500 ]
+    links: ["c1"]
+
+  c3:
+    image: innotech/consul:0.4.1
+    volumes: { "/vagrant": "/vagrant" }
+    command: consul agent -server -bootstrap-expect 1 -data-dir /tmp/consul -node=agent-one -bind=$C3_PORT_10000_TCP_ADDR
+    ports: [ 8500 ]
+    links: ["c1"]
 
 network:
   flaky: 30%

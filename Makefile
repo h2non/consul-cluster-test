@@ -5,6 +5,13 @@ default: test
 clean:
 	rm -rf .tmp
 
+vm:
+	vagrant up
+	vagrant ssh
+
+cluster:
+	blockade up
+
 test: clean
 	lettuce
 

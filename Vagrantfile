@@ -25,8 +25,6 @@ if (source /etc/default/docker && [[ $DOCKER_OPTS != *lxc* ]]); then
 
 fi
 
-cd /vagrant
-
 # install into system python
 python setup.py install
 

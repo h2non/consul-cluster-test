@@ -1,25 +1,24 @@
 #
-# A Docker image with a ready-to-run Hydra server
+# A Docker image with ready-to-run Consul service
 #
-# VERSION 0.2
+# VERSION 0.4.1
 #
 
 FROM ubuntu:14.04
-MAINTAINER  Innotech
+MAINTAINER Innotech
 
+# Installing dependencies...
 RUN apt-get update
-RUN apt-get install wget -y
+RUN apt-get install -y unzip wget
 
-RUN wget http://ppa.launchpad.net/chris-lea/libpgm/ubuntu/pool/main/libp/libpgm/libpgm-5.1-0_5.1.118-1chl1~precise1_amd64.deb
-RUN wget http://ppa.launchpad.net/chris-lea/zeromq/ubuntu/pool/main/z/zeromq3/libzmq3_4.0.5-1chl1~trusty1_amd64.deb
+# Fetching Consul...
+RUN cd /tmp/
+RUN wget https://dl.bintray.com/mitchellh/consul/0.4.1_linux_amd64.zip -O consul.zip
 
-# Install .deb packages
-RUN dpkg -i libpgm-5.1-0_5.1.118-1chl1~precise1_amd64.deb
-RUN dpkg -i libzmq3_4.0.5-1chl1~trusty1_amd64.deb
-RUN ln -s /usr/lib/x86_64-linux-gnu/libzmq.so.4 /usr/lib/x86_64-linux-gnu/libzmq.so.3
+# Installing Consul...
+RUN unzip consul.zip
+RUN chmod +x consul
+RUN mv consul /usr/bin/consul
 
 # Expose TCP ports
-EXPOSE 7771
-EXPOSE 7772
-EXPOSE 7777
-EXPOSE 7701
+EXPOSE 8500

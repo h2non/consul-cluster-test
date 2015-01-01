@@ -1,5 +1,4 @@
 from lettuce import *
-#from HydraConfigGenerator
 
 @step('I have the number (\d+)')
 def have_the_number(step, number):
@@ -15,5 +14,3 @@ def check_number(step, expected):
     expected = int(expected)
     assert world.number == expected, \
         "Got %d" % world.number
-
-
