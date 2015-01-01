@@ -77,6 +77,12 @@ Create and use the bash shell inside the container
 sudo docker run -i -t innotech/consul:0.4.1 /bin/bash
 ```
 
+Or enter to an running container
+
+```bash
+sudo docker exec -it <containerIdOrName> bash
+```
+
 ### Blockade testing
 
 See the [complete guide](http://blockade.readthedocs.org/en/latest/guide.html) for more information

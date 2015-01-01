@@ -2,7 +2,7 @@ containers:
   c1:
     image: innotech/consul:0.4.1
     volumes: { "/vagrant": "/vagrant" }
-    command: consul agent -server -bootstrap-expect 1 -data-dir /tmp/consul -node=agent1 -bind=$C1_PORT_10000_TCP_ADDR
+    command: sh -c 'consul agent -server -bootstrap-expect 1 -data-dir /tmp/consul -node=agent1 -bind=$C1_PORT_10000_TCP_ADDR; sleep 10000'
     expose: [8500]
     ports: {8500: 8500}
     environment: { "IS_MASTER": 1 }
@@ -10,7 +10,7 @@ containers:
   c2:
     image: innotech/consul:0.4.1
     volumes: { "/vagrant": "/vagrant" }
-    command: sh -c 'consul agent -data-dir /tmp/consul -node=agent2 -bind=$C2_PORT_10000_TCP_ADDR > /var/log/consul.log; consul join $C1_PORT_10000_TCP_ADDR; sleep 1000'
+    command: sh -c 'consul agent -data-dir /tmp/consul -node=agent2 -bind=$C2_PORT_10000_TCP_ADDR > /var/log/consul.log; consul join $C1_PORT_10000_TCP_ADDR; sleep 10000'
     expose: [8500]
     ports:
       8501: 8500
@@ -20,7 +20,7 @@ containers:
   c3:
     image: innotech/consul:0.4.1
     volumes: { "/vagrant": "/vagrant" }
-    command: sh -c 'consul agent -data-dir /tmp/consul -node=agent3 -bind=$C3_PORT_10000_TCP_ADDR > /var/log/consul.log; consul join $C1_PORT_10000_TCP_ADDR; sleep 1000'
+    command: sh -c 'consul agent -data-dir /tmp/consul -node=agent3 -bind=$C3_PORT_10000_TCP_ADDR > /var/log/consul.log; consul join $C1_PORT_10000_TCP_ADDR; sleep 10000'
     expose: [8500]
     ports:
       8502: 8500
