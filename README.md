@@ -1,6 +1,6 @@
 # Consul Cluster Test Suite
 
-A proof-of-concept which aims to recreate a distributed cluster system of [Consul](http://www.consul.io/) servers in order to test multiple failure points, service isolation and network errors reproducing various complex scenarios to verify the system reilabiity and non-blocking cluster fault tolerance.
+A proof-of-concept which aims to recreate a distributed cluster system of [Consul](http://www.consul.io/) servers in order to test multiple failure points, service isolation and network errors reproducing various complex scenarios to verify the system reilabiity and non-blocking cluster fault tolerance and successful service behavior.
 
 It use a [Docker](https://docker.io) [container](https://registry.hub.docker.com/u/innotech/consul/) and [Blockade](http://blockade.readthedocs.org/en/latest/), which is a Python utility to easily infer multiple network latencies and failures between Docker containers using [tc](http://en.wikipedia.org/wiki/Tc_%28Linux%29) and [iptables](http://en.wikipedia.org/wiki/Iptables) from the Docker host
 
@@ -21,11 +21,6 @@ Clone this repository
 git clone https://github.com/innotech/consul-cluster-test && cd consul-cluster-test
 ```
 
-Install Python dependencies using `pip`
-```bash
-$ sudo pip install -r requirements.txt
-```
-
 Start the VM (this may take a while the first time)
 ```bash
 vagrant up
@@ -41,9 +36,9 @@ Go the vagrant shared directory
 cd /vagrant
 ```
 
-Install Python dependencies
+Install Python dependencies using `pip`
 ```bash
-pip install -r requirements.txt
+$ sudo pip install -r requirements.txt
 ```
 
 Run Consul cluster using [Blockade](https://github.com/dcm-oss/blockade/blob/master/docs/guide.rst)
