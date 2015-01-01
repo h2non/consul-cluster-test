@@ -9,14 +9,14 @@ containers:
   c2:
     image: innotech/consul:0.4.1
     volumes: { "/vagrant": "/vagrant" }
-    command: consul agent -data-dir /tmp/consul -node=agent2 -bind=$C2_PORT_10000_TCP_ADDR > /var/log/consul.log && consul join $C1_PORT_10000_TCP_ADDR && sleep 1000
+    command: sh -c 'consul agent -data-dir /tmp/consul -node=agent2 -bind=$C2_PORT_10000_TCP_ADDR > /var/log/consul.log; consul join $C1_PORT_10000_TCP_ADDR; sleep 1000'
     ports: [ 8500 ]
     links: ["c1"]
 
   c3:
     image: innotech/consul:0.4.1
     volumes: { "/vagrant": "/vagrant" }
-    command: consul agent -data-dir /tmp/consul -node=agent3 -bind=$C3_PORT_10000_TCP_ADDR > /var/log/consul.log && consul join $C1_PORT_10000_TCP_ADDR && sleep 1000
+    command: sh -c 'consul agent -data-dir /tmp/consul -node=agent3 -bind=$C3_PORT_10000_TCP_ADDR > /var/log/consul.log; consul join $C1_PORT_10000_TCP_ADDR; sleep 1000'
     ports: [ 8500 ]
     links: ["c1"]
 
