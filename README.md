@@ -77,7 +77,7 @@ Create and use the bash shell inside the container
 sudo docker run -i -t innotech/consul:0.4.1 /bin/bash
 ```
 
-Or enter to an running container
+Or enter in a running container
 
 ```bash
 sudo docker exec -it <containerIdOrName> bash
