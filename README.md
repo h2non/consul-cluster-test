@@ -36,7 +36,7 @@ Go the vagrant shared directory
 cd /vagrant
 ```
 
-Install Python dependencies using `pip`
+Install Python dependencies via `pip`
 ```bash
 $ sudo pip install -r requirements.txt
 ```
@@ -70,15 +70,26 @@ Run acceptance tests (still a work in progress)
 $ make test
 ```
 
+### Docker debugging
+
+Create and use the bash shell inside the container
+```bash
+sudo docker run -i -t innotech/consul:0.4.1 /bin/bash
+```
+
 ### Blockade testing
 
 See the [complete guide](http://blockade.readthedocs.org/en/latest/guide.html) for more information
+
+The cluster info is defined in `blockade.yml`
 
 ##### Infer high latency in network packets
 
 ```bash
 sudo blockade slow c2
 ```
+
+For more information how to configure a Consul cluster, see the [documentation](http://www.consul.io/intro/getting-started/join.html)
 
 ##### Infer a flaky latency in network packets
 
