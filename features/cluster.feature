@@ -7,7 +7,7 @@ Feature: Standalone Consul server as master without peers
   Background:
     Given a Consul server with the following config:
       | Key  | Value |
-      | addr | 0.0.0.0:7401 |
+      | addr | 0.0.0.0:8500 |
     And the following cluster configuration
       | Name  | Master | Config      |
       | hydra | true   | hydra1.conf |
