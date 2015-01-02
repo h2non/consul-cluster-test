@@ -4,7 +4,7 @@ A proof-of-concept which aims to recreate a distributed cluster system of [Consu
 
 That's possible thanks to [Docker](https://docker.io) [containers](https://registry.hub.docker.com/u/innotech/consul/) and [Blockade](http://blockade.readthedocs.org/en/latest/), which is a Python utility to easily infer multiple network latencies, failures and isolation between Docker containers using [tc](http://en.wikipedia.org/wiki/Tc_%28Linux%29) and [iptables](http://en.wikipedia.org/wiki/Iptables) in the Docker host
 
-It's planned to have multiple scenarios using [Lettuce](http://lettuce.it/) as a BDD-style test suite
+It's planned to setup and test multiple cluster and failure scenarios using [Lettuce](http://lettuce.it/) for a BDD-style approach
 
 ## Requirements
 
